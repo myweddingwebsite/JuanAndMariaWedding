@@ -387,18 +387,22 @@ section { padding:6rem 2rem; }
 /* ── PROGRAM ── */
 #timeline { background:var(--offwhite); }
 .prog-list {
-  display:flex;flex-direction:column;align-items:center;
+  display:flex;flex-direction:column;
   position:relative;margin-top:0.5rem;
+  max-width:640px;margin-left:auto;margin-right:auto;
 }
 .prog-list::before {
   content:'';position:absolute;
   left:50%;top:0;bottom:0;width:1px;
   background:linear-gradient(to bottom,transparent,rgba(122,154,181,0.3) 8%,rgba(122,154,181,0.3) 92%,transparent);
   transform:translateX(-50%);
+  pointer-events:none;
 }
 .prog-row {
-  display:grid;grid-template-columns:1fr 20px 1fr;
-  align-items:center;width:100%;padding:1rem 0;
+  display:grid;
+  grid-template-columns:1fr 20px 1fr;
+  align-items:start;
+  width:100%;padding:1.1rem 0;
   border-bottom:1px solid rgba(122,154,181,0.1);
   opacity:0;transform:translateY(10px);
   transition:opacity 0.5s ease,transform 0.5s ease;
@@ -407,9 +411,12 @@ section { padding:6rem 2rem; }
 .prog-row.hl .prog-name { color:var(--navy);font-weight:500; }
 .prog-row.hl .prog-node { background:var(--navy);box-shadow:0 0 0 4px rgba(46,64,89,0.15); }
 .prog-time {
-  text-align:right;padding-right:2rem;
+  text-align:right;
+  padding-right:1.6rem;
+  padding-top:0.22rem;
   font-family:'Josefin Sans',sans-serif;font-size:0.65rem;
   letter-spacing:0.1em;color:var(--steel);
+  white-space:nowrap;
 }
 .prog-node {
   width:10px;height:10px;border-radius:50%;
@@ -417,15 +424,19 @@ section { padding:6rem 2rem; }
   border:2px solid var(--offwhite);
   box-shadow:0 0 0 1px var(--dusty-pale);
   z-index:1;flex-shrink:0;
+  margin-top:0.25rem;
+  justify-self:center;
 }
-.prog-event { padding-left:2rem; }
+.prog-event { padding-left:1.6rem; }
 .prog-name {
   font-family:'Cormorant Garamond',serif;font-size:1.2rem;
   color:var(--text-mid);transition:color 0.3s;
+  line-height:1.3;
 }
 .prog-note {
   font-family:'Cormorant Garamond',serif;font-style:italic;
   font-size:0.9rem;color:var(--text-light);
+  margin-top:0.15rem;
 }
 .prog-row:hover .prog-name { color:var(--navy); }
 
@@ -987,7 +998,6 @@ footer {
       </div>
       <div class="prog-row">
         <div class="prog-time">7:00 PM</div>
-        <div class="prog-note"></div>
         <div class="prog-node"></div>
         <div class="prog-event"><div class="prog-name">Words of Advice &amp; Toasts</div></div>
       </div>
